@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sunshine</string>
+    <string name="no_city">Add a City to See the Weather</string>
+    <string name="title_activity_current_weather">CurrentWeatherActivity</string>
+    <string name="title_activity_forecast">Forecast</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment one</string>
+    <string name="hello_blank_fragment2">Hello blank fragment two</string>
+</resources>

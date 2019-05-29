@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.text.DateFormat;
@@ -29,7 +30,7 @@ public class CurrentWeatherActivity extends AppCompatActivity {
     public static final String extra_message = "com.example.sunshine.weather1.MESSAGE";
     public static final String extra_messageId = "com.example.sunshine.weather1.MESSAGE2";
     private int cityMainId;
-    private ConstraintLayout layout;
+    private LinearLayout layout;
     private Entity1 entity1;
     private WeatherViewModel weatherViewModel;
     private int primaryId;
@@ -138,9 +139,13 @@ public class CurrentWeatherActivity extends AppCompatActivity {
          if(id==R.id.save1){
              Log.i("primary",primaryId+"");
              if(primaryId == -1){
-                 weatherViewModel.insertEntity(entity1);
-                 Log.i("insert","saved");
-                 Toast.makeText(this, "City Saved", Toast.LENGTH_LONG).show();
+
+                 if(entity1 != null) {
+                     weatherViewModel.insertEntity(entity1);
+                     Log.i("insert", "saved");
+                     Toast.makeText(this, "City Saved", Toast.LENGTH_LONG).show();
+                 }
+
              } else {
                  Log.i("insert","already exist");
                  Toast.makeText(this, "Already Exists", Toast.LENGTH_LONG).show();

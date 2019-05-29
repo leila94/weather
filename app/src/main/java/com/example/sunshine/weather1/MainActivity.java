@@ -89,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.SetOnItemClickListener(new MyRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(Entity1 entity1) {
-                Log.i("database size", entity1.getCityId() + "");
-                Log.i("database size2", "ccccc");
-
 
                 Intent intent = new Intent(MainActivity.this, CurrentWeatherActivity.class);
                 intent.putExtra(CurrentWeatherActivity.extra_message, entity1.getCityId());
@@ -119,10 +116,9 @@ findCity.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
                 @Override
                 public void onSuccess(List<String> strings) {
-                    Log.i("test", "fail");
 
                     if (strings != null) {
-                        Log.i("test", strings.get(0));
+
                         arrayAdapter = new ArrayAdapter(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, strings);
                         findCity.setAdapter(arrayAdapter);
                         findCity.setThreshold(1);

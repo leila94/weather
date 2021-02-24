@@ -1,34 +1,21 @@
 package com.example.sunshine.weather1;
 
 
-import android.Manifest;
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
-import android.arch.persistence.room.Database;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 
-import com.google.android.gms.location.LocationRequest;
-import com.patloew.rxlocation.RxLocation;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Scheduler;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
-import io.reactivex.SingleObserver;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import pl.charmas.android.reactivelocation2.ReactiveLocationProvider;
 
 /**
  * Created by Leila on 5/12/2019.
@@ -46,18 +33,18 @@ public class WeatherViewModel extends AndroidViewModel {
         super(application);
 
 
-        AppDatabase database = AppDatabase.getAppDatabase(application);
-        weatherDao = database.wDao();
-        liveDataEntity = weatherDao.readAll();
+       // AppDatabase database;
+       // weatherDao = database.wDao();
+        //liveDataEntity = weatherDao.readAll();
     }
 
-    public Single<Integer> getIranids(String string){
+    /*public Single<Integer> getIranids(String string){
         return weatherDao.getId2(string).subscribeOn(Schedulers.io()).observeOn(Schedulers.io());
-    }
+    }*/
 
-    public Single<List<String >> getIranNames(){
+   /* public Single<List<String >> getIranNames(){
         return weatherDao.getNameArray().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
-    }
+    }*/
 
     public LiveData<List<Entity1>> getAllWeather() {
         return liveDataEntity;

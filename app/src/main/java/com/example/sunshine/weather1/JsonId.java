@@ -1,8 +1,9 @@
 package com.example.sunshine.weather1;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 /**
  * Created by Leila on 5/18/2019.
@@ -14,14 +15,18 @@ public class JsonId {
     private int id;
 
     @ColumnInfo(name = "cid")
-    private int cid;
+    private int i;
 
     @ColumnInfo(name = "name")
-    private String name;
+    private String j;
 
-    public JsonId(int cid, String name) {
-        this.cid = cid;
-        this.name = name;
+    /*public JsonId(int cid, String name) {
+        this.i = cid;
+        this.j = name;
+    }*/
+
+    public JsonId() {
+
     }
 
     public int getId() {
@@ -32,19 +37,19 @@ public class JsonId {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getJ() {
+        return j;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setJ(String name) {
+        this.j = name;
     }
 
-    public int getCid() {
-        return cid;
+    public int getI() {
+        return i;
     }
 
-    public void setCid(int cid) {
-        this.cid = cid;
+    public void setI(int cid) {
+        this.i = cid;
     }
 }

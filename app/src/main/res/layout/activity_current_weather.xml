@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="currentViewModel"
+            type="com.example.sunshine.weather1.viewModel.CurrentViewModel"/>
+    </data>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,17 +14,17 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:id="@+id/layout"
-    tools:context="com.example.sunshine.weather1.CurrentWeatherActivity">
+    tools:context="com.example.sunshine.weather1.view.CurrentWeatherActivity">
 
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:titleTextColor="@color/cardview_light_background"
         android:background="#50000000" />
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +36,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -176,10 +183,10 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toEndOf="@+id/max"
                     app:layout_constraintTop_toBottomOf="@+id/logo3" />
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <android.support.design.widget.TabLayout
+            <TableLayout
 
                 android:id="@+id/tablayout"
                 android:layout_width="match_parent"
@@ -201,7 +208,8 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>
+</layout>

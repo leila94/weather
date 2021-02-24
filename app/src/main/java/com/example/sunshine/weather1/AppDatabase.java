@@ -1,19 +1,32 @@
 package com.example.sunshine.weather1;
 
-import android.app.Application;
-import android.arch.persistence.db.SupportSQLiteDatabase;
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
+
 import android.content.Context;
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
+
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.example.sunshine.weather1.model.CityModel;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
+
+
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
@@ -25,35 +38,15 @@ import io.reactivex.schedulers.Schedulers;
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract weatherDao wDao() ;
-    private static AppDatabase INSTANCE;
-
-    //private AppDatabase(){}
 
 
 
-    public static synchronized AppDatabase getAppDatabase(Context context) {
-        if (INSTANCE == null) {
-            INSTANCE =
-                    Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "weatherBase")
-                            .fallbackToDestructiveMigration()
-                            .addCallback(rdc)
-                            .build();
-        }
-        return INSTANCE;
-    }
-
-    public static void destroyInstance() {
-        INSTANCE = null;
-    }
 
 
-    private static RoomDatabase.Callback rdc = new RoomDatabase.Callback(){
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
 
 
-            List<JsonId> jsonIds = new ArrayList<>();
+
+          /*   List<JsonId> jsonIds = new ArrayList<>();
             jsonIds.add(new JsonId(66093,"Yasuj"));
             jsonIds.add(new JsonId(144448,"Ahvaz"));
             jsonIds.add(new JsonId(141681,"Bandar Abbas"));
@@ -93,17 +86,14 @@ public abstract class AppDatabase extends RoomDatabase {
             Observable<List<JsonId>> observable = Observable.just(jsonIds);
 
             observable.subscribeOn(Schedulers.io()).observeOn(Schedulers.io())
-                    .subscribe(new Consumer<List<JsonId>>() {
-                        @Override
+                    .subscribe(new Consumer<List<JsonId>>() {                        @Override
                         public void accept(List<JsonId> jsonIds) throws Exception {
                             Log.i("iii","ppp");
                            // Context context = ;
                             weatherDao dao = INSTANCE.wDao();
                             dao.insertCityId(jsonIds);
                         }
-                    });
-    }
-    };
+   */
 }
 
 

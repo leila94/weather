@@ -5,12 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_weather"
         android:roundIcon="@drawable/ic_weather"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,8 +19,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CurrentWeatherActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".view.CurrentWeatherActivity"
+            android:parentActivityName=".view.MainActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
